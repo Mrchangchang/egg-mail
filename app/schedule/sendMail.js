@@ -26,19 +26,19 @@ class SendMail extends Subscription {
       todaystr
     }
     const template = ejs.compile(
-      fs.readFileSync(path.resolve(__dirname, "../view/email.html"), "utf8")
+      fs.readFileSync(path.resolve(__dirname, "../view/mail.html"), "utf8")
     )
     const html = template(HtmlData);
     let transporter = nodemailer.createTransport({
-      service: app.config.userConfig.EmianService,
+      service: app.config.EmianService,
       port: 465,
       secureConnection: true,
-      auth: app.config.userConfig.EamilAuth
+      auth: app.config.EamilAuth
     });
     let mailOptions = {
-      from: app.config.userConfig.EmailFrom,
-      to: app.config.userConfig.EmailTo,
-      subject: app.config.userConfig.EmailSubject,
+      from: app.config.EmailFrom,
+      to: app.config.EmailTo,
+      subject: app.config.EmailSubject,
       html: html
     };
     transporter.sendMail(mailOptions, (error, info={}) => {

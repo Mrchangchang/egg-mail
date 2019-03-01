@@ -27,7 +27,7 @@ module.exports = appInfo => {
     },
     EmailFrom: '"楠楠" <437887624@qq.com>',
     EmailSubject: '一封暖暖的邮件',
-    EmianService: 'qq'
+    EmianService: "QQ"
   };
   // 模板渲染配置
   config.view = {
