@@ -22,12 +22,14 @@ module.exports = appInfo => {
   const userConfig = {
     // myAppName: 'egg',
     EamilAuth: {
+      type: 'login',
       user: 'yanchang120@vip.qq.com',
-      password: 'vqqedlkxqyhybgce'
+      pass: 'vqqedlkxqyhybgce'
     },
-    EmailFrom: '"楠楠" <437887624@qq.com>',
+    EmailTo: '"楠楠" <437887624@qq.com>',
     EmailSubject: '一封暖暖的邮件',
-    EmianService: "QQ"
+    EmianService: "QQ",
+    EmailFrom: '"严畅" <yanchang120@vip.qq.com>'
   };
   // 模板渲染配置
   config.view = {
