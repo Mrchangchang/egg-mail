@@ -5,6 +5,7 @@ const Controller = require('egg').Controller;
 class HomeController extends Controller {
   async index() {
     const { ctx, app } = this;
+    let send = ctx.query.send
     const todayOneData = await ctx.service.one.getOneInfo()
     const weatherInfo = await ctx.service.one.getWeatherInfo()
     let nowDate = new Date()
@@ -17,7 +18,9 @@ class HomeController extends Controller {
       ...weatherInfo,
       todaystr
     }
-    await app.runSchedule('../schedule/sendMail.js');
+    if (send) {
+      await app.runSchedule('../schedule/sendMail.js');
+    }
     await ctx.render('/mail.html', data);
     // ctx.body = data
   }
